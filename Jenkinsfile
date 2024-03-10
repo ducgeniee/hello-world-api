@@ -9,7 +9,7 @@ pipeline {
         }
     stage('Compile package') {
       steps {
-        echo "npm run build"
+        echo "npm install"
         sleep 10
       }
     }
@@ -19,11 +19,11 @@ pipeline {
         sleep 30
       }
     }
-    stage('Deploy') {
-      steps {
-        echo "deploying"
-        stageMessage "sample stage message"
-      }
-    }
+//     stage('Deploy') {
+//       steps {
+//         echo "deploying"
+//         stageMessage "sample stage message"
+//       }
+//     }
   }
 }
