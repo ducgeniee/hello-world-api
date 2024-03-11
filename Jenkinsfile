@@ -3,20 +3,17 @@ pipeline {
   stages {
     stage('Switch To Node Version 16') {
           steps {
-            echo "nvm use v16.14.2"
-            sleep 2
+            sh 'nvm use v16.14.2'
           }
         }
     stage('Compile Package') {
       steps {
-        echo "npm install"
-        sleep 2
+        sh 'npm install'
       }
     }
     stage('Run Unit Test') {
       steps {
-        echo "npm test:unit"
-        sleep 2
+        sh 'npm test:unit'
       }
     }
     stage('Deploy in staging') {
@@ -25,7 +22,7 @@ pipeline {
           }
        steps {
            echo env.EVN
-           echo "npm start"
+           sh 'npm start'
        }
    }
   }
