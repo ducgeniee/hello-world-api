@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  tools { nodejs "nodejs" }
   stages {
 //     stage('Switch To Node Version 16') {
 //           steps {
