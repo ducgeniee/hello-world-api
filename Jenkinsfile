@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Switch To Node Version 16') {
-          steps {
-            sh 'nvm use v16.14.2'
-          }
-        }
+//     stage('Switch To Node Version 16') {
+//           steps {
+//             sh 'nvm use v16.14.2'
+//           }
+//         }
     stage('Compile Package') {
       steps {
         sh 'npm install'
