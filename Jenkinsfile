@@ -1,29 +1,32 @@
 pipeline {
   agent any
   stages {
-    stage('switch to node v.16') {
+    stage('Switch To Node Version 16') {
           steps {
             echo "nvm use v16.14.2"
-            sleep 10
+            sleep 2
           }
         }
-    stage('Compile package') {
+    stage('Compile Package') {
       steps {
         echo "npm install"
-        sleep 10
+        sleep 2
       }
     }
-    stage('Run unit test') {
+    stage('Run Unit Test') {
       steps {
-        echo "npm test"
-        sleep 30
+        echo "npm test:unit"
+        sleep 2
       }
     }
-//     stage('Deploy') {
-//       steps {
-//         echo "deploying"
-//         stageMessage "sample stage message"
-//       }
-//     }
+    stage('Deploy in staging') {
+       environment {
+               EVN = 'staging'
+          }
+       steps {
+           echo env.EVN
+           echo "npm start"
+       }
+   }
   }
 }
